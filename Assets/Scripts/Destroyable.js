@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-public var hp = 30;
+public var hp = 3;
 
 function Start () {
 

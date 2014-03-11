@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ShootBullet.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HaloSwitch.js">
     <Files>
-      <File FileName="Assets\Crouch.js" Line="2" Column="1" />
-      <File FileName="Assets\Shoot.js" Line="9" Column="1" />
-      <File FileName="Assets\ShootBullet.js" Line="17" Column="37" />
+      <File FileName="Assets\Scripts\SprintButton.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Crouch.js" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HaloSwitch.js" Line="15" Column="21" />
+      <File FileName="Assets\Scripts\Destroyable.js" Line="3" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
