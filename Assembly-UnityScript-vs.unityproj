@@ -49,13 +49,20 @@
      <Compile Include="Assets\Scripts\CameraCrouch.js" />
      <Compile Include="Assets\Scripts\Crouch.js" />
      <Compile Include="Assets\Scripts\Destroyable.js" />
+     <Compile Include="Assets\Scripts\DoorOpener.js" />
      <Compile Include="Assets\Scripts\FollowPlayer.js" />
+     <Compile Include="Assets\Scripts\GuardShoot.js" />
      <Compile Include="Assets\Scripts\HaloSwitch.js" />
+     <Compile Include="Assets\Scripts\MovementRates.js" />
+     <Compile Include="Assets\Scripts\PlayerDeath.js" />
      <Compile Include="Assets\Scripts\Shoot.js" />
+     <Compile Include="Assets\Scripts\ShootBullet - Copy.js" />
      <Compile Include="Assets\Scripts\ShootBullet.js" />
      <Compile Include="Assets\Scripts\SprintButton.js" />
-     <Compile Include="Assets\Scripts\StayPut.js" />
+     <Compile Include="Assets\Scripts\TriggerGun.js" />
      <Compile Include="Assets\Scripts\WalkSound.js" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

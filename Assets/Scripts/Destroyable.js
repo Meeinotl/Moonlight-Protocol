@@ -7,7 +7,10 @@ function Start () {
 }
 
 function Update () {
-
+	if (hp <= 0)
+	{
+		Destroy(this.gameObject);
+	}
 }
 
 function OnCollisionExit(c : Collision)
@@ -16,8 +19,5 @@ function OnCollisionExit(c : Collision)
 	{
 		hp -= ShootBullet.Damage;
 	}
-	if (hp <= 0)
-	{
-		Destroy(this.gameObject);
-	}
+
 }

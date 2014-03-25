@@ -6,19 +6,14 @@ function Start ()
 
 function Update () 
 {
-	if ((Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")) && !audio.isPlaying)
-	//if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && !audio.isPlaying)
+	
+	if ((Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) && !audio.isPlaying)
 	{
 		audio.Play();
-		//Debug.Log("go");
-		//audio.loop = true;
 	}
 	
-	if ((Input.GetButtonUp("Horizontal") && !Input.GetButtonDown("Vertical")))
-	//if ((Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
+	if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
 	{
 		audio.Stop();
-		//Debug.Log("stop!");
-		//audio.loop = false;
 	}
 }
