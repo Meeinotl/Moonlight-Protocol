@@ -12,7 +12,7 @@ function Update () {
 		Destroy(this.gameObject);
 	}
 }
-
+/*
 function OnCollisionExit(c : Collision)
 {
 	if (c.collider.gameObject.name == "Musket Ball(Clone)")
@@ -20,4 +20,4 @@ function OnCollisionExit(c : Collision)
 		hp -= ShootBullet.Damage;
 	}
 
-}
+}*/
