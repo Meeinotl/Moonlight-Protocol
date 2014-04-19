@@ -18,14 +18,14 @@ function Update ()
 			this.transform.localScale -= Vector3(0, CrouchAmount, 0);
 			this.transform.position.y -= CrouchAmount + CrouchAmount;
 			crouched = true;
-			//Debug.Log(crouched);
+			//Debug.Log("crouched");
 		}
 		else if (Input.GetButtonDown("Crouch") && crouched)
 		{
 			this.transform.localScale += Vector3(0, CrouchAmount, 0);
 			this.transform.position.y += CrouchAmount + CrouchAmount;
 			crouched = false;
-			//Debug.Log(crouched);
+			//Debug.Log("not crouched");
 		}
 	//}
 }

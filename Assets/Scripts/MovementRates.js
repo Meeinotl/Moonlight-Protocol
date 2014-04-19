@@ -3,7 +3,7 @@
 public var sprintSpeed = 9;
 public var normalSpeed = 6;
 public var crouchSpeed = 3;
-private var sprint = false;
+public static var sprint = false;
 private var chMotor : CharacterMotor;
 
 function Start () 
@@ -23,10 +23,12 @@ function Update ()
 	{
 		if (Input.GetButtonDown("Sprint") && !sprint)
 		{
+			//Debug.Log("Sprinting");
 			sprint = true;
 		}
 		else if (Input.GetButtonDown("Sprint") && sprint)
 		{
+			//Debug.Log("Not Sprinting");
 			sprint = false;
 		}
 	}

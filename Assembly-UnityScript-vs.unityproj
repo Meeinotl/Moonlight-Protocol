@@ -39,24 +39,23 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Crosshairs.js" />
-     <Compile Include="Assets\Elevator.js" />
-     <Compile Include="Assets\HitSparks.js" />
-     <Compile Include="Assets\Knockback.js" />
      <Compile Include="Assets\Scripts\CameraCrouch.js" />
+     <Compile Include="Assets\Scripts\Crosshairs.js" />
      <Compile Include="Assets\Scripts\Crouch.js" />
      <Compile Include="Assets\Scripts\Destroyable.js" />
      <Compile Include="Assets\Scripts\DoorOpener.js" />
+     <Compile Include="Assets\Scripts\Elevator.js" />
      <Compile Include="Assets\Scripts\FollowPlayer.js" />
      <Compile Include="Assets\Scripts\GuardShoot.js" />
      <Compile Include="Assets\Scripts\HaloSwitch.js" />
+     <Compile Include="Assets\Scripts\HitSparks.js" />
      <Compile Include="Assets\Scripts\MovementRates.js" />
      <Compile Include="Assets\Scripts\PlayerDeath.js" />
      <Compile Include="Assets\Scripts\Shoot.js" />
