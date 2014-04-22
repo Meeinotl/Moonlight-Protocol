@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{1ADDE068-4A45-49E8-7648-2E4E18207824}") = "Moonlight-Protocol", "Assembly-CSharp-firstpass-vs.csproj", "{018188A7-73F7-5993-8933-8B3ADE42E39F}"
 EndProject
+Project("{1ADDE068-4A45-49E8-7648-2E4E18207824}") = "Moonlight-Protocol", "Assembly-CSharp-vs.csproj", "{95431476-D2E5-E640-C776-F216E7A80E1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{018188A7-73F7-5993-8933-8B3ADE42E39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018188A7-73F7-5993-8933-8B3ADE42E39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{018188A7-73F7-5993-8933-8B3ADE42E39F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95431476-D2E5-E640-C776-F216E7A80E1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95431476-D2E5-E640-C776-F216E7A80E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95431476-D2E5-E640-C776-F216E7A80E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95431476-D2E5-E640-C776-F216E7A80E1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																												GlobalSection(MonoDevelopProperties) = preSolution
+																																														GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

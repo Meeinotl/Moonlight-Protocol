@@ -18,11 +18,12 @@ function Update ()
 	//Debug.Log("dist " + dist);
 	// 20 sprint, 10 walking, 5 crouched
 	//Debug.Log("On Plane = " + OnPlane());
-	if (OnPlane() && CharMoved())
+	if (OnPlane())
 	{
-		if ((dist < 20 && MovementRates.sprint) ||
-			(dist < 10 && !MovementRates.sprint) ||
-			(dist < 5 && Crouch.crouched))
+		if ((dist < 50 && TriggerGun.firing) ||
+			(CharMoved() && dist < 20 && MovementRates.sprint) ||
+			(CharMoved() && dist < 10 && !MovementRates.sprint) ||
+			(CharMoved() && dist < 5 && Crouch.crouched))
 		{
 			GetComponent(Animator).SetBool("Walk", true);
 			agent.SetDestination(player);
