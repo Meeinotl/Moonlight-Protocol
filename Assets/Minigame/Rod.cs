@@ -36,10 +36,10 @@ public class Rod : MonoBehaviour {
 
 	public void SetColor() {
 		if(!powered) {
-			renderer.material.color = Color.gray;
+			renderer.material.color = Color.black;
 		}
 		else {
-			renderer.material.color = Color.red;
+			renderer.material.color = Color.magenta;
 		}
 	}
 
@@ -57,18 +57,40 @@ public class Rod : MonoBehaviour {
 				Power();
 			}
 		}
+		else {
+			disconnectFrom(other);
+		}
+	}
+
+	public void disconnectFrom(GameObject other) {
+		Rod otherRod = other.GetComponent<Rod>();
+
+		if(userConnectedTo.IndexOf(other) != -1) {
+			userConnectedTo.Remove(other);
+			otherRod.userConnectedTo.Remove(gameObject);
+
+			// Not the most efficient way of going about things,
+			// but it shouldn't matter for this many rods.
+			otherRod.Unpower();
+			Unpower();
+			GameObject startRod = GameObject.FindWithTag("StartRod");
+			if(startRod) {
+				Rod startRodRod = startRod.GetComponent<Rod>(); // rod rod rod rod rod
+				startRodRod.powered = false;
+				startRodRod.Power();
+			}
+		}
 	}
 
 	public void Power() {
 		if(!powered) {
 			powered = true;
-
 			GameObject board = transform.parent.gameObject;
 			if(lose) {
 				board.renderer.material.color = Color.red;
 			}
 			else if(win && board.renderer.material.color != Color.red) {
-				board.renderer.material.color = Color.green;
+				board.renderer.material.color = Color.blue;
 			}
 			SetColor();
 			
@@ -78,6 +100,20 @@ public class Rod : MonoBehaviour {
 
 			foreach(GameObject o in userConnectedTo) {
 				o.GetComponent<Rod>().Power();
+			}
+		}
+	}
+
+	public void Unpower() {
+		if(powered) {
+			powered = false;
+			SetColor();
+			foreach(GameObject o in connectedTo) {
+				o.GetComponent<Rod>().Unpower();
+			}
+
+			foreach(GameObject o in userConnectedTo) {
+				o.GetComponent<Rod>().Unpower();
 			}
 		}
 	}
