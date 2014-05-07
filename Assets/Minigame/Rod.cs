@@ -4,28 +4,34 @@ using System.Collections.Generic;
 
 public class Rod : MonoBehaviour {
 
+	public GameObject wire;
 	public List<GameObject> connectedTo;
 	public bool powered = false;
 	public bool lose = false;
 	public bool win = false;
 	[HideInInspector] public List<GameObject> userConnectedTo;
+	
+	[HideInInspector] public Dictionary<GameObject, GameObject> wires;
+	[HideInInspector] public Dictionary<GameObject, GameObject> userWires;
 
 	void Awake() {
 		SetColor();
+		wires = new Dictionary<GameObject, GameObject>();
+		userWires = new Dictionary<GameObject, GameObject>();
+
+		foreach(GameObject o in connectedTo) {
+			makeWire(wires, o).SetActive(false);
+		}
+
+		if(lose) {
+			makeWire(userWires, transform.parent.Find("Alarm").gameObject);
+		}
+		else if(win) {
+			makeWire(userWires, transform.parent.Find("Goal").gameObject);
+		}
 	}
 	
 	void Update() {
-		if(transform.parent.gameObject.GetComponent<FlipBoard>().flipped) {
-			foreach(GameObject other in connectedTo) {
-				Debug.DrawLine(transform.position + Vector3.up * .02f, other.transform.position + Vector3.up * .02f, Color.red);
-			}
-		}
-		else {
-			foreach(GameObject other in userConnectedTo) {
-				Debug.DrawLine(transform.position + Vector3.up * .02f, other.transform.position + Vector3.up * .02f, Color.red);
-			}
-		}
-
 		if(lose) {
 			Debug.DrawLine(transform.position + Vector3.up * .04f, transform.parent.Find("Alarm").position + Vector3.up * .04f, Color.red);
 		}
@@ -49,6 +55,7 @@ public class Rod : MonoBehaviour {
 		if(userConnectedTo.IndexOf(other) == -1) {
 			userConnectedTo.Add(other);
 			otherRod.userConnectedTo.Add(gameObject);
+			makeWire(userWires, other);
 
 			if(powered) {
 				otherRod.Power();
@@ -68,6 +75,14 @@ public class Rod : MonoBehaviour {
 		if(userConnectedTo.IndexOf(other) != -1) {
 			userConnectedTo.Remove(other);
 			otherRod.userConnectedTo.Remove(gameObject);
+			if(userWires.ContainsKey(other)) {
+				Destroy(userWires[other]);
+				userWires.Remove(other);
+			}
+			if(otherRod.userWires.ContainsKey(gameObject)) {
+				Destroy(otherRod.userWires[gameObject]);
+				otherRod.userWires.Remove(gameObject);			
+			}
 
 			// Not the most efficient way of going about things,
 			// but it shouldn't matter for this many rods.
@@ -115,6 +130,34 @@ public class Rod : MonoBehaviour {
 			foreach(GameObject o in userConnectedTo) {
 				o.GetComponent<Rod>().Unpower();
 			}
+		}
+	}
+
+	GameObject makeWire(Dictionary<GameObject, GameObject> dictionary, GameObject other) {
+		GameObject wireObject = (GameObject)Instantiate(wire, Vector3.zero, Quaternion.identity);
+
+		LineRenderer line = wireObject.GetComponent<LineRenderer>();
+		line.useWorldSpace = false;
+		line.SetVertexCount(2);
+		line.SetPosition(0, transform.position + Vector3.up * (.05f * (dictionary == userWires ? 1 : -1)));
+		line.SetPosition(1, other.transform.position + Vector3.up * (.05f * (dictionary == userWires ? 1 : -1)));
+		line.SetColors(Color.red, Color.red);
+		line.SetWidth(.003f, .003f);
+
+		wireObject.transform.parent = transform;
+
+		dictionary.Add(other, wireObject);
+
+		return wireObject;
+	}
+
+	public void FlipBoard(bool flipped) {
+		foreach(KeyValuePair<GameObject, GameObject> p in userWires) {
+			p.Value.SetActive(!flipped);
+		}
+
+		foreach(KeyValuePair<GameObject, GameObject> p in wires) {
+			p.Value.SetActive(flipped);
 		}
 	}
 }

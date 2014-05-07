@@ -21,7 +21,10 @@ public class FlipBoard : MonoBehaviour {
 		}
 
 		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * Time.deltaTime);
-		flipped = Mathf.Abs(transform.rotation.z) >= 0.9f;
+		if(flipped != Mathf.Abs(transform.rotation.z) >= 0.9f) {
+			flipped = !flipped;
+			BroadcastMessage("FlipBoard", flipped, SendMessageOptions.DontRequireReceiver);
+		}
 
 		prevT = t;
 	}
