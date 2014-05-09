@@ -19,7 +19,7 @@ public class FlipBoard : MonoBehaviour {
 	
 	void Update () {
 		int t = (int) Input.GetAxis("Fire1");
-		t = Input.GetKey(KeyCode.F) ? 1 : 0;
+		t = t != 0 ? t : Input.GetKey(KeyCode.F) ? 1 : 0;
 
 		if(t != 0 && prevT == 0) {
 			targetRotation *= Quaternion.Euler(0, 0, 180 * t);

@@ -46,17 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MiniTutGuide.js" />
      <Compile Include="Assets\Scripts\CameraCrouch.js" />
      <Compile Include="Assets\Scripts\CenterScreen.js" />
+     <Compile Include="Assets\Scripts\Chowechu.js" />
      <Compile Include="Assets\Scripts\Crosshairs.js" />
      <Compile Include="Assets\Scripts\Crouch.js" />
      <Compile Include="Assets\Scripts\Destroyable.js" />
      <Compile Include="Assets\Scripts\DoorControl.js" />
      <Compile Include="Assets\Scripts\DoorOpener.js" />
      <Compile Include="Assets\Scripts\Elevator.js" />
+     <Compile Include="Assets\Scripts\ElevatorControl.js" />
      <Compile Include="Assets\Scripts\FollowPlayer.js" />
      <Compile Include="Assets\Scripts\GuardShoot.js" />
      <Compile Include="Assets\Scripts\HaloSwitch.js" />
+     <Compile Include="Assets\Scripts\HealthBar.js" />
      <Compile Include="Assets\Scripts\MovementRates.js" />
      <Compile Include="Assets\Scripts\MusicSwitch.js" />
      <Compile Include="Assets\Scripts\PlayerDeath.js" />
