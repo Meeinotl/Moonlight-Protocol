@@ -6,7 +6,7 @@ function Start ()
 {
 	transform.position = Vector3.zero;
 	transform.localScale = Vector3.zero;
-	guiTexture.pixelInset = Rect((lookcamera.pixelWidth / 2), (lookcamera.pixelHeight / 2), 64, 64);
+	guiTexture.pixelInset = Rect((lookcamera.pixelWidth / 2 - 32), (lookcamera.pixelHeight / 2 - 32), 64, 64);
 }
 
 function Update () 

@@ -1,24 +1,45 @@
 ﻿#pragma strict
 
-public var hp = 5;
+public static var hp = 5;
+public var regenSec = 20;
+private var regen = regenSec * 60;
 
-function Start () {
+function Start () 
+{
 
 }
 
-function Update () {
+function Update () 
+{
 	if (hp <= 0)
 	{
 		Application.LoadLevel(Application.loadedLevel);
+		hp = 5;
+		GameObject.Find("FlagBearer").GetComponent(Flag).tutorial = true;
+	}
+	
+	if (hp < 5)
+	{
+		if (regen > 0)
+		{
+			regen--;
+		}
+		else
+		{
+			regen = regenSec * 60;
+			hp++;
+			Debug.Log(hp);
+		}
+	}
+	else
+	{
+		regen = regenSec * 60;
 	}
 }
 
-function OnCollisionEnter(c : Collision)
+function Hit ()
 {
-	if (c.collider.gameObject.name == "Bullet(Clone)")
-	{
-		hp -= ShootBullet.Damage;
-		//Debug.Log("You Been Shot, Fool!");
-	}
-
+	hp--;
+	Debug.Log(hp);
+	audio.Play();
 }
