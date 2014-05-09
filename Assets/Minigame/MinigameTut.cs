@@ -1,28 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Minigame : MonoBehaviour {
+public class MinigameTut : MonoBehaviour {
 	
 	private int hoverX, hoverY;
 	private int selX, selY;
 	private int prevH, prevV, prevA;
 
-	public int width = 3;
-	public int height = 3;
-	public int startX = 1;
-	public int startY = 2;
-
-	void Start() {
+	void Start () {
 		deselect();
-		changeHover(startX, startY);
+		changeHover(1, 2);
 
 		transform.Find("Power").renderer.material.color = Color.yellow;
 		transform.Find("Alarm").renderer.material.color = Color.red;
 		transform.Find("Goal").renderer.material.color = Color.green;
-	}
-
-	void Reset() {
-		Start();
 	}
 	
 	void Update () {
@@ -34,9 +25,7 @@ public class Minigame : MonoBehaviour {
 						int h = (int)Input.GetAxis ("DPadHorizontal");
 						int v = (int)Input.GetAxis ("DPadVertical");
 						int a = (int)Input.GetAxis ("Jump");
-			Debug.Log("horiz " + h);
-			Debug.Log("vert " + v);
-			Debug.Log("jump " + a);
+
 						if (Input.GetKey (KeyCode.LeftArrow)) {
 								h = -1;
 						} else if (Input.GetKey (KeyCode.RightArrow)) {
@@ -51,10 +40,6 @@ public class Minigame : MonoBehaviour {
 
 						a = Input.GetKey (KeyCode.Space) ? 1 : 0;
 		
-						if(Input.GetKeyDown(KeyCode.R)) {
-							BroadcastMessage("Reset");
-						}
-
 						if (h != 0 && prevH == 0) {
 								if (selected ()) {
 										changeHover (selX + h, selY);
@@ -105,8 +90,8 @@ public class Minigame : MonoBehaviour {
 	}
 
 	private GameObject getRod(int x, int y) {
-		if(x < 0 || x > width || y < 0 || y > height){return null;}
-		Transform t = transform.Find("Rod" + ((y * width) + x + 1));
+		if(x < 0 || x > 2 || y < 0 || y > 2){return null;}
+		Transform t = transform.Find("RodTut" + ((y * 3) + x + 1));
 		if(t){return t.gameObject;}
 		return null;
 	}

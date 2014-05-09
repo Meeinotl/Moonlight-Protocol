@@ -1,15 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FollowPlayer.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Minigame\MinigameTut.cs">
     <Files>
-      <File FileName="Assets\Minigame\Rod.cs" Line="142" Column="7" />
-      <File FileName="Assets\Scripts\Win.js" Line="1" Column="1" />
-      <File FileName="Assets\Minigame\Minigame.cs" Line="20" Column="70" />
-      <File FileName="Assets\Scripts\MusicSwitch.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DoorControl.js" Line="37" Column="6" />
-      <File FileName="Assets\Scripts\DoorOpener.js" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Flag.js" Line="26" Column="5" />
-      <File FileName="Assets\Scripts\FollowPlayer.js" Line="49" Column="44" />
+      <File FileName="Assets\Scripts\DoorControl.js" Line="26" Column="22" />
+      <File FileName="Assets\Standard Assets\Flag.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FollowPlayer.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerDeath.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Chowechu.js" Line="1" Column="1" />
+      <File FileName="Assets\Tutorial\Tutorial.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HealthBar.js" Line="1" Column="1" />
+      <File FileName="Assets\MiniTutGuide.js" Line="1" Column="1" />
+      <File FileName="Assets\Minigame\Rod.cs" Line="1" Column="1" />
+      <File FileName="Assets\Minigame\FlipBoard.cs" Line="1" Column="1" />
+      <File FileName="Assets\Minigame\RodTut.cs" Line="1" Column="1" />
+      <File FileName="Assets\Minigame\MinigameTut.cs" Line="4" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

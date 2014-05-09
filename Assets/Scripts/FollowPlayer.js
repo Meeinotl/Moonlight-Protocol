@@ -43,7 +43,7 @@ function Update ()
 			target = player;
 			// stop and look at the player when they're close
 			// or at least don't bump into each other at the target spot
-			if (Vector3.Distance(transform.position, target) < 3)
+			if (Vector3.Distance(transform.position, target) < 5)
 			{
 				this.transform.LookAt(target);
 				agent.SetDestination(transform.position);
@@ -76,4 +76,5 @@ function Spot(pos : Vector3): void
 {
 	target = pos;
 	agent.SetDestination(pos);
+	GetComponent(Animator).SetBool("Walk", true);
 }

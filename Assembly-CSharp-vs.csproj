@@ -48,7 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Minigame\FlipBoard.cs" />
      <Compile Include="Assets\Minigame\Minigame.cs" />
+     <Compile Include="Assets\Minigame\MinigameTut.cs" />
      <Compile Include="Assets\Minigame\Rod.cs" />
+     <Compile Include="Assets\Minigame\RodTut.cs" />
      <None Include="Assets\UI_\quartz_32.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
