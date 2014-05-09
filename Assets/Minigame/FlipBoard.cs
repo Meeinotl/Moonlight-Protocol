@@ -18,7 +18,7 @@ public class FlipBoard : MonoBehaviour {
 	}
 	
 	void Update () {
-		int t = (int) Input.GetAxis("Triggers");
+		int t = (int) Input.GetAxis("Fire1");
 		t = Input.GetKey(KeyCode.F) ? 1 : 0;
 
 		if(t != 0 && prevT == 0) {
@@ -26,10 +26,7 @@ public class FlipBoard : MonoBehaviour {
 		}
 
 		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * Time.deltaTime);
-		if(flipped != Mathf.Abs(transform.rotation.z) >= 0.9f) {
-			flipped = !flipped;
-			BroadcastMessage("FlipBoard", flipped, SendMessageOptions.DontRequireReceiver);
-		}
+		flipped = Mathf.Abs(transform.rotation.z) >= 0.9f;
 
 		prevT = t;
 	}

@@ -1,12 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerDeath.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FollowPlayer.js">
     <Files>
-      <File FileName="Assets\Scripts\PlayerDeath.js" Line="16" Column="26" />
-      <File FileName="Assets\Scripts\MovementRates.js" Line="44" Column="4" />
-      <File FileName="Assets\Scripts\Crouch.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Destroyable.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ShootBullet.js" Line="1" Column="1" />
+      <File FileName="Assets\Minigame\Rod.cs" Line="142" Column="7" />
+      <File FileName="Assets\Scripts\Win.js" Line="1" Column="1" />
+      <File FileName="Assets\Minigame\Minigame.cs" Line="20" Column="70" />
+      <File FileName="Assets\Scripts\MusicSwitch.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DoorControl.js" Line="37" Column="6" />
+      <File FileName="Assets\Scripts\DoorOpener.js" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Flag.js" Line="26" Column="5" />
+      <File FileName="Assets\Scripts\FollowPlayer.js" Line="49" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

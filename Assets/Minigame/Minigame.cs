@@ -21,59 +21,66 @@ public class Minigame : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(GetComponent<FlipBoard>().flipped){return;}
+		if (GameObject.Find ("FlagBearer").GetComponent<Flag> ().miniGame) {
+						if (GetComponent<FlipBoard> ().flipped) {
+								return;
+						}
 
-		int h = (int) Input.GetAxis("DPadHorizontal");
-		int v = (int) Input.GetAxis("DPadVertical");
-		int a = (int) Input.GetAxis("Fire1");
+						int h = (int)Input.GetAxis ("DPadHorizontal");
+						int v = (int)Input.GetAxis ("DPadVertical");
+						int a = (int)Input.GetAxis ("Jump");
 
-		if(Input.GetKey(KeyCode.LeftArrow)){h = -1;}
-		else if(Input.GetKey(KeyCode.RightArrow)){h = 1;}
+						if (Input.GetKey (KeyCode.LeftArrow)) {
+								h = -1;
+						} else if (Input.GetKey (KeyCode.RightArrow)) {
+								h = 1;
+						}
 
-		if(Input.GetKey(KeyCode.UpArrow)){v = 1;}
-		else if(Input.GetKey(KeyCode.DownArrow)){v = -1;}
+						if (Input.GetKey (KeyCode.UpArrow)) {
+								v = 1;
+						} else if (Input.GetKey (KeyCode.DownArrow)) {
+								v = -1;
+						}
 
-		a = Input.GetKey(KeyCode.Space) ? 1 : 0;
-
-		if(Input.GetKeyDown(KeyCode.R)) {
-			BroadcastMessage("Reset");
-		}
+						a = Input.GetKey (KeyCode.Space) ? 1 : 0;
 		
-		if(h != 0 && prevH == 0) {
-			if(selected()) {
-				changeHover(selX + h, selY);
-			}
-			else {
-				changeHover(hoverX + h, hoverY);
-			}
-		}
+						if(Input.GetKeyDown(KeyCode.R)) {
+							BroadcastMessage("Reset");
+						}
 		
-		if(v != 0 && prevV == 0) {
-			if(selected()) {
-				changeHover(selX, selY - v);
-			}
-			else {
-				changeHover(hoverX, hoverY - v);
-			}
-		}
+						if (h != 0 && prevH == 0) {
+								if (selected ()) {
+										changeHover (selX + h, selY);
+								} else {
+										changeHover (hoverX + h, hoverY);
+								}
+						}
+		
+						if (v != 0 && prevV == 0) {
+								if (selected ()) {
+										changeHover (selX, selY - v);
+								} else {
+										changeHover (hoverX, hoverY - v);
+								}
+						}
 
-		if(a != 0 && prevA == 0) {
-			if(!selected()) {
-				select(hoverX, hoverY);
-			}
-			else {
-				if(selX != hoverX || selY != hoverY) {
-					Rod rod = getRod(selX, selY).GetComponent<Rod>();
-					rod.connectTo(getRod(hoverX, hoverY));
+						if (a != 0 && prevA == 0) {
+								if (!selected ()) {
+										select (hoverX, hoverY);
+								} else {
+										if (selX != hoverX || selY != hoverY) {
+												Rod rod = getRod (selX, selY).GetComponent<Rod> ();
+												rod.connectTo (getRod (hoverX, hoverY));
+										}
+
+										deselect ();
+								}
+						}
+
+						prevH = h;
+						prevV = v;
+						prevA = a;
 				}
-
-				deselect();
-			}
-		}
-
-		prevH = h;
-		prevV = v;
-		prevA = a;
 	}
 
 	private void changeHover(int x, int y) {

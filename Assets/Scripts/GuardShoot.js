@@ -1,10 +1,9 @@
 ﻿#pragma strict
 
-var bullet: GameObject;
-var flash : GameObject;
+public var flash : GameObject;
 private var fireTime = 0;
 private var firing = false;
-
+public var dead = false;
 function Start () 
 {
 
@@ -21,47 +20,32 @@ function Update ()
 		firing = false;
 	}
 	var hit : RaycastHit;
-	//var ray : Ray = lookcamera.ScreenPointToRay(Vector3((lookcamera.pixelWidth / 2), (lookcamera.pixelHeight / 2), 0));
 	var fwd = transform.TransformDirection (Vector3.left);
-	Physics.Raycast (transform.position, fwd, hit);
-	if (!firing && hit.collider.gameObject.tag == "Player")
+	Physics.Raycast (Ray(transform.position, fwd), hit);
+	Debug.DrawRay(transform.position, fwd, Color.red);
+	try
 	{
-		//ShootBullet.Fire(bullet, flash, transform.position, transform.rotation);
-		hit.collider.gameObject.GetComponent(PlayerDeath).hp--;
-		Debug.Log("Hit You!");
-		audio.Play();
-		var flashClone : GameObject = Instantiate(flash, transform.position, transform.rotation);
-		Destroy(flashClone, 0.1);
-		fireTime = 50;
-		firing = true;
+		if (!dead && !GameObject.Find("FlagBearer").GetComponent(Flag).tutorial && !firing && hit.collider.gameObject.tag == "Player")
+		{
+			transform.parent.GetComponent(FollowPlayer).Spot(hit.collider.gameObject.transform.position);
+			if (Random.Range(0, 100) < Flag.guardAccuracy)
+			{
+				//ShootBullet.Fire(bullet, flash, transform.position, transform.rotation);
+				
+				hit.collider.gameObject.GetComponent(PlayerDeath).Hit();
+				//PlayerDeath.Hit();
+			}
+				
+			audio.Play();
+			var flashClone : GameObject = Instantiate(flash, transform.position, transform.rotation);
+			Destroy(flashClone, 0.1);
+			fireTime = 50;
+			firing = true;
+			
+		}
+	}
+	catch (NullReferenceException)
+	{
+	
 	}
 }
-/*
-if (Input.GetAxis("Fire1") > 0 && !firing)
-	{
-		ShootBullet.Fire(bullet, flash, this.transform.position,this.transform.rotation);
-		audio.Play();
-		fireCount = 20;
-		var hit : RaycastHit;
-		var sparkclone : GameObject;
-		var ray : Ray = lookcamera.ScreenPointToRay(Vector3((lookcamera.pixelWidth / 2), (lookcamera.pixelHeight / 2), 0));
-		var fwd = transform.TransformDirection (Vector3.forward);
-		//if (Physics.Raycast (transform.position, fwd, hit)) 
-		if (Physics.Raycast (ray, hit))//, 100, 1 << LayerMask.NameToLayer("Enemy"))) 
-		{
-			//Debug.Log("Hit");
-			if (hit.collider.gameObject.tag == "Enemy")
-			{
-				Debug.Log("Strike");
-				hit.collider.gameObject.GetComponent(Destroyable).hp--;
-				
-				var badPos = hit.collider.gameObject.transform.position;
-				var goodPos = Vector3(badPos.x, badPos.y + 1.5, badPos.z);
-				sparkclone = Instantiate(sparks, goodPos, transform.rotation);
-				Destroy(sparkclone, .2);
-			}
-		}
-		
-		firing = true;
-	}
-	*/

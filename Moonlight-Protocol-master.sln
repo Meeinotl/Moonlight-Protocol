@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{4830B0C0-D07F-66B4-2A38-7551FF43A715}") = "Moonlight-Protocol-master", "Assembly-CSharp-firstpass.csproj", "{F56BC859-CAEA-44E5-2389-CF7E5D292AF0}"
 EndProject
+Project("{4830B0C0-D07F-66B4-2A38-7551FF43A715}") = "Moonlight-Protocol-master", "Assembly-CSharp.csproj", "{E2260D2F-15A1-16D2-24D0-64FFCB77A8ED}"
+EndProject
 Project("{4830B0C0-D07F-66B4-2A38-7551FF43A715}") = "Moonlight-Protocol-master", "Assembly-UnityScript-firstpass.unityproj", "{52234695-1D5F-570E-FCEE-459081399359}"
 EndProject
 Project("{4830B0C0-D07F-66B4-2A38-7551FF43A715}") = "Moonlight-Protocol-master", "Assembly-UnityScript.unityproj", "{1849EF8C-EFB5-565B-A544-C53836219AAE}"
@@ -17,6 +19,10 @@ Global
 		{F56BC859-CAEA-44E5-2389-CF7E5D292AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F56BC859-CAEA-44E5-2389-CF7E5D292AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F56BC859-CAEA-44E5-2389-CF7E5D292AF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2260D2F-15A1-16D2-24D0-64FFCB77A8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2260D2F-15A1-16D2-24D0-64FFCB77A8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2260D2F-15A1-16D2-24D0-64FFCB77A8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2260D2F-15A1-16D2-24D0-64FFCB77A8ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52234695-1D5F-570E-FCEE-459081399359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52234695-1D5F-570E-FCEE-459081399359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52234695-1D5F-570E-FCEE-459081399359}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +35,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																		GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																											GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
