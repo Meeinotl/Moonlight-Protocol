@@ -10,6 +10,11 @@ public class FlipBoard : MonoBehaviour {
 
 	void Start () {
 		targetRotation = transform.rotation;
+		Debug.Log(transform.rotation);
+	}
+
+	void Reset() {
+		transform.rotation = new Quaternion(0, 0, 0, 1);
 	}
 	
 	void Update () {

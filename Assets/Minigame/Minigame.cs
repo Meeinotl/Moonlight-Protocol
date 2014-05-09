@@ -7,13 +7,17 @@ public class Minigame : MonoBehaviour {
 	private int selX, selY;
 	private int prevH, prevV, prevA;
 
-	void Start () {
+	void Start() {
 		deselect();
 		changeHover(1, 2);
 
 		transform.Find("Power").renderer.material.color = Color.yellow;
 		transform.Find("Alarm").renderer.material.color = Color.red;
 		transform.Find("Goal").renderer.material.color = Color.green;
+	}
+
+	void Reset() {
+		Start();
 	}
 	
 	void Update () {
@@ -30,6 +34,10 @@ public class Minigame : MonoBehaviour {
 		else if(Input.GetKey(KeyCode.DownArrow)){v = -1;}
 
 		a = Input.GetKey(KeyCode.Space) ? 1 : 0;
+
+		if(Input.GetKeyDown(KeyCode.R)) {
+			BroadcastMessage("Reset");
+		}
 		
 		if(h != 0 && prevH == 0) {
 			if(selected()) {

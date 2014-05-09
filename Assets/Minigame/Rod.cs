@@ -20,7 +20,7 @@ public class Rod : MonoBehaviour {
 		userWires = new Dictionary<GameObject, GameObject>();
 
 		foreach(GameObject o in connectedTo) {
-			makeWire(wires, o).SetActive(false);
+			makeWire(wires, o);
 		}
 
 		if(lose) {
@@ -29,6 +29,28 @@ public class Rod : MonoBehaviour {
 		else if(win) {
 			makeWire(userWires, transform.parent.Find("Goal").gameObject);
 		}
+	}
+
+	void Reset() {
+		Unpower();
+
+		foreach(KeyValuePair<GameObject, GameObject> p in wires) {
+			Destroy(p.Value);
+		}
+
+		foreach(KeyValuePair<GameObject, GameObject> p in userWires) {
+			Destroy(p.Value);
+		}
+
+		wires.Clear();
+		userWires.Clear();
+		userConnectedTo.Clear();
+
+		if(tag == "StartRod") {
+			Power();
+		}
+
+		Awake();
 	}
 	
 	void Update() {
