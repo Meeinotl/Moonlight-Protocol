@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Rod : MonoBehaviour {
-	
+
+
 	public GameObject wire;
 	public List<GameObject> connectedTo;
 	public bool powered = false;
@@ -49,7 +50,6 @@ public class Rod : MonoBehaviour {
 		if(tag == "StartRod") {
 			Power();
 		}
-
 		Awake();
 	}
 	
@@ -124,16 +124,15 @@ public class Rod : MonoBehaviour {
 			powered = true;
 			GameObject board = transform.parent.gameObject;
 			if(lose) {
+				StartCoroutine(Lose());
 				board.renderer.material.color = Color.red;
-				// lose magic
-				GameObject.Find("FlagBearer").GetComponent<Flag>().miniGame = false;
-				GameObject.Find("FlagBearer").GetComponent<Flag>().tutorial = false;
 			}
 			else if(win && board.renderer.material.color != Color.red) {
 				board.renderer.material.color = Color.blue;
 				//win magic
 				GameObject.Find("FlagBearer").GetComponent<Flag>().miniGame = false;
 				GameObject.Find("FlagBearer").GetComponent<Flag>().tutorial = false;
+				SendMessageUpwards("Unlock");
 			}
 			SetColor();
 			
@@ -187,5 +186,15 @@ public class Rod : MonoBehaviour {
 		foreach(KeyValuePair<GameObject, GameObject> p in wires) {
 			p.Value.SetActive(flipped);
 		}
+	}
+
+	IEnumerator Lose(){
+		yield return new WaitForSeconds (.01f);
+
+		
+		// lose magic
+		GameObject.Find("FlagBearer").GetComponent<Flag>().miniGame = false;
+		GameObject.Find("FlagBearer").GetComponent<Flag>().tutorial = false;
+		transform.parent.gameObject.BroadcastMessage("Reset");
 	}
 }

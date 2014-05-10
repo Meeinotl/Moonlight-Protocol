@@ -13,6 +13,7 @@ public class Minigame : MonoBehaviour {
 	public int startY = 2;
 
 	void Start() {
+		renderer.material.color = Color.white;
 		deselect();
 		changeHover(startX, startY);
 
@@ -27,67 +28,70 @@ public class Minigame : MonoBehaviour {
 	
 	void Update () {
 		if (GameObject.Find ("FlagBearer").GetComponent<Flag> ().miniGame) {
-						if (GetComponent<FlipBoard> ().flipped) {
-								return;
-						}
+			if (GetComponent<FlipBoard> ().flipped) {
+					return;
+			}
+			int h = (int)Input.GetAxis ("DPadHorizontal");
+			int v = (int)Input.GetAxis ("DPadVertical");
+			int a = (int)Input.GetAxis ("Jump");
 
-						int h = (int)Input.GetAxis ("DPadHorizontal");
-						int v = (int)Input.GetAxis ("DPadVertical");
-						int a = (int)Input.GetAxis ("Jump");
-			Debug.Log("horiz " + h);
-			Debug.Log("vert " + v);
-			Debug.Log("jump " + a);
-						if (Input.GetKey (KeyCode.LeftArrow)) {
-								h = -1;
-						} else if (Input.GetKey (KeyCode.RightArrow)) {
-								h = 1;
-						}
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				h = -1;
 
-						if (Input.GetKey (KeyCode.UpArrow)) {
-								v = 1;
-						} else if (Input.GetKey (KeyCode.DownArrow)) {
-								v = -1;
-						}
+			} else if (Input.GetKey (KeyCode.RightArrow)) {
+			
+				h = 1;
+			}
 
-						a = Input.GetKey (KeyCode.Space) ? 1 : 0;
-		
-						if(Input.GetKeyDown(KeyCode.R)) {
-							BroadcastMessage("Reset");
-						}
+			if (Input.GetKey (KeyCode.UpArrow)) {
+				v = 1;
+			} else if (Input.GetKey (KeyCode.DownArrow)) {
+				v = -1;
+			}
 
-						if (h != 0 && prevH == 0) {
-								if (selected ()) {
-										changeHover (selX + h, selY);
-								} else {
-										changeHover (hoverX + h, hoverY);
-								}
-						}
-		
-						if (v != 0 && prevV == 0) {
-								if (selected ()) {
-										changeHover (selX, selY - v);
-								} else {
-										changeHover (hoverX, hoverY - v);
-								}
-						}
+			a = a != 0 ? a : Input.GetKey (KeyCode.Space) ? 1 : 0;
 
-						if (a != 0 && prevA == 0) {
-								if (!selected ()) {
-										select (hoverX, hoverY);
-								} else {
-										if (selX != hoverX || selY != hoverY) {
-												Rod rod = getRod (selX, selY).GetComponent<Rod> ();
-												rod.connectTo (getRod (hoverX, hoverY));
-										}
+			if (Input.GetButtonDown("Sprint")){
+				BroadcastMessage("Reset");
+				GameObject.Find("FlagBearer").GetComponent<Flag>().miniGame = false;
+				GameObject.Find("FlagBearer").GetComponent<Flag>().tutorial = false;
+			}
 
-										deselect ();
-								}
-						}
+			if(Input.GetButtonDown("Clear")) {
+				BroadcastMessage("Reset");
+			}
 
-						prevH = h;
-						prevV = v;
-						prevA = a;
+			if (h != 0 && prevH == 0) {
+				if (selected ()) {
+					changeHover (selX + h, selY);
+				} else {
+					changeHover (hoverX + h, hoverY);
 				}
+			}
+
+			if (v != 0 && prevV == 0) {
+				if (selected ()) {
+					changeHover (selX, selY - v);
+				} else {
+					changeHover (hoverX, hoverY - v);
+				}
+			}
+
+			if (a != 0 && prevA == 0) {
+				if (!selected ()) {
+					select (hoverX, hoverY);
+				} else {
+					if (selX != hoverX || selY != hoverY) {
+						Rod rod = getRod (selX, selY).GetComponent<Rod> ();
+						rod.connectTo (getRod (hoverX, hoverY));
+					}
+					deselect ();
+				}
+			}
+			prevH = h;
+			prevV = v;
+			prevA = a;
+		}
 	}
 
 	private void changeHover(int x, int y) {
@@ -105,7 +109,7 @@ public class Minigame : MonoBehaviour {
 	}
 
 	private GameObject getRod(int x, int y) {
-		if(x < 0 || x > width || y < 0 || y > height){return null;}
+		if(x < 0 || x > width - 1 || y < 0 || y > height - 1){return null;}
 		Transform t = transform.Find("Rod" + ((y * width) + x + 1));
 		if(t){return t.gameObject;}
 		return null;

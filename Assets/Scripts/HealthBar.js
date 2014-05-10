@@ -11,6 +11,8 @@ public var h0 : GUITexture;
 function Start () 
 {
 	
+	transform.position = Vector3.zero;
+	transform.localScale = Vector3.zero;
 }
 
 function Update () 
@@ -20,32 +22,32 @@ function Update ()
 			case 0:
 				Clear();
 				h0.guiTexture.enabled = true;
-				h0.guiTexture.pixelInset = Rect(- cam.pixelWidth / 2, - cam.pixelHeight / 2, cam.pixelWidth / 4, cam.pixelHeight / 4);
+				h0.guiTexture.pixelInset = Rect(0, 0, cam.pixelWidth / 4, cam.pixelHeight / 4);
 				break;
 			case 1: 
 				Clear();
 				h1.guiTexture.enabled = true;
-				h1.guiTexture.pixelInset = Rect(- cam.pixelWidth / 2, - cam.pixelHeight / 2, cam.pixelWidth / 4, cam.pixelHeight / 4);
+				h1.guiTexture.pixelInset = Rect(0, 0, cam.pixelWidth / 4, cam.pixelHeight / 4);
 				break;
 			case 2:
 				Clear();
 				h2.guiTexture.enabled = true;
-				h2.guiTexture.pixelInset = Rect(- cam.pixelWidth / 2, - cam.pixelHeight / 2, cam.pixelWidth / 4, cam.pixelHeight / 4);
+				h2.guiTexture.pixelInset = Rect(0, 0, cam.pixelWidth / 4, cam.pixelHeight / 4);
 				break;
 			case 3:
 				Clear();
 				h3.guiTexture.enabled = true;
-				h3.guiTexture.pixelInset = Rect(- cam.pixelWidth / 2, - cam.pixelHeight / 2, cam.pixelWidth / 4, cam.pixelHeight / 4);
+				h3.guiTexture.pixelInset = Rect(0, 0, cam.pixelWidth / 4, cam.pixelHeight / 4);
 				break;
 			case 4:
 				Clear();
 				h4.guiTexture.enabled = true;
-				h4.guiTexture.pixelInset = Rect(- cam.pixelWidth / 2, - cam.pixelHeight / 2, cam.pixelWidth / 4, cam.pixelHeight / 4);
+				h4.guiTexture.pixelInset = Rect(0, 0, cam.pixelWidth / 4, cam.pixelHeight / 4);
 				break;
 			case 5:
 				Clear();
 				h5.guiTexture.enabled = true;
-				h5.guiTexture.pixelInset = Rect(- cam.pixelWidth / 2, - cam.pixelHeight / 2, cam.pixelWidth / 4, cam.pixelHeight / 4);
+				h5.guiTexture.pixelInset = Rect(0, 0, cam.pixelWidth / 4, cam.pixelHeight / 4);
 				break;
 		}
 }

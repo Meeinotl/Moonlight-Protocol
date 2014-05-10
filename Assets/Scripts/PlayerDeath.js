@@ -40,6 +40,5 @@ function Update ()
 function Hit ()
 {
 	hp--;
-	Debug.Log(hp);
 	audio.Play();
 }

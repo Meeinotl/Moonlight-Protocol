@@ -18,6 +18,8 @@ private var safeCount = 200;
 
 function Start () 
 {
+	transform.position = Vector3.zero;
+	transform.localScale = Vector3.zero;
 	Clear();
 }
 

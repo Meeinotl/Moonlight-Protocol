@@ -22,9 +22,8 @@ function Update ()
 {
 	if (flag.GetComponent(Flag).miniGame == false)
 	{
-		main.enabled = true;
-		gun.enabled = true;
-		mini.enabled = false;
+		main.gameObject.SetActive(true);
+		mini.gameObject.SetActive(false);
 		board.gameObject.SetActive(false);
 		player.GetComponent(FPSInputController).enabled = true;
 		player.GetComponent(CharacterMotor).enabled = true;
@@ -35,9 +34,8 @@ function Update ()
 	{
 		if (locked)
 		{
-			main.enabled = false;
-			gun.enabled = false;
-			mini.enabled = true;
+			main.gameObject.SetActive(false);
+			mini.gameObject.SetActive(true);
 			board.gameObject.SetActive(true);
 			player.GetComponent(FPSInputController).enabled = false;
 			player.GetComponent(CharacterMotor).enabled = false;
@@ -47,10 +45,12 @@ function Update ()
 			flag.GetComponent(Flag).miniGame = true;
 			
 		}
-		else
-		{
-			// open the door
-			GameObject.Destroy(door);
-		}	
 	}
+}
+
+function Unlock()
+{
+	Debug.Log("Unlock");
+	locked = false;
+	GameObject.Destroy(door);
 }

@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{1849EF8C-EFB5-565B-A544-C53836219AAE}</ProjectGuid>
+	<ProjectGuid>{5CC4AFB3-C4A2-3C02-8FDF-7FF0FB1E8466}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,10 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MiniTutGuide.js" />
      <Compile Include="Assets\Scripts\CameraCrouch.js" />
      <Compile Include="Assets\Scripts\CenterScreen.js" />
-     <Compile Include="Assets\Scripts\Chowechu.js" />
      <Compile Include="Assets\Scripts\Crosshairs.js" />
      <Compile Include="Assets\Scripts\Crouch.js" />
      <Compile Include="Assets\Scripts\Destroyable.js" />
@@ -61,6 +59,8 @@
      <Compile Include="Assets\Scripts\GuardShoot.js" />
      <Compile Include="Assets\Scripts\HaloSwitch.js" />
      <Compile Include="Assets\Scripts\HealthBar.js" />
+     <Compile Include="Assets\Scripts\Invincible.js" />
+     <Compile Include="Assets\Scripts\MiniTutGuide.js" />
      <Compile Include="Assets\Scripts\MovementRates.js" />
      <Compile Include="Assets\Scripts\MusicSwitch.js" />
      <Compile Include="Assets\Scripts\PlayerDeath.js" />
@@ -78,9 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{F56BC859-CAEA-44E5-2389-CF7E5D292AF0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{018188A7-73F7-5993-8933-8B3ADE42E39F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{52234695-1D5F-570E-FCEE-459081399359}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+      <Project>{2607450B-4E59-9493-EE24-FEAFEE14EA9F}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,7 +2,6 @@
 
 public var miniGame : boolean = false;
 public var tutorial : boolean = true;
-public var miniwin : boolean = true;
 public static var sprint : boolean = false;
 public static var crouch : boolean = false;
 
